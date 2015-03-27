@@ -37,4 +37,7 @@ docker run \
  * -v /dev/snd:/dev/snd --privileged — sound
 
 
+![Chromium in container, yay!](https://github.com/TomasTomecek/dockerfile-fedora-chromium/blob/master/chromium-in-container.png)
+
+
 This is heavily inspired by [Jessie Frazelle's blog post](https://blog.jessfraz.com/posts/docker-containers-on-the-desktop.html).
