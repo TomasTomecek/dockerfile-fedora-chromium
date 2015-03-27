@@ -18,7 +18,6 @@ docker run \
     --name chromium \
     -e XAUTHORITY=/.Xauthority \
     -v ~/.Xauthority:/.Xauthority:ro \
-    --privileged \
     fedora-chromium
 ```
 

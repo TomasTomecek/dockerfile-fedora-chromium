@@ -8,4 +8,5 @@ ENV USER_ID 1000
 RUN useradd -o -u ${USER_ID} -G video chromium
 USER chromium
 ENV HOME /home/chromium
-CMD ["/usr/bin/chromium-browser"]
+# --no-sandbox -- can run the container in an unprivileged mode
+CMD ["/usr/bin/chromium-browser", "--no-sandbox"]
