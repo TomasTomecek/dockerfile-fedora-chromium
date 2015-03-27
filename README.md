@@ -11,22 +11,30 @@ docker build --tag=fedora-chromium .
 ```
 docker run \
     --net host \
-    --cpuset 0 \
-    --memory 512mb \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e DISPLAY=$DISPLAY \
-    --name chromium \
     -e XAUTHORITY=/.Xauthority \
     -v ~/.Xauthority:/.Xauthority:ro \
+    --name chromium \
     fedora-chromium
 ```
 
-
- * `--net host` — use host's network stack
- * `--cpuset 0` — one core is just enough
- * `--memory 512mb` — that should be enough
+### Required
+ * `--net host` — use host's network stack, otherwise you'll see:
+```
+[1:1:0327/114315:ERROR:browser_main_loop.cc(210)] Gtk: cannot open display: :0.0
+```
  * `-v /tmp/.X11-unix:/tmp/.X11-unix` — bindmount X socket
  * `-e DISPLAY=$DISPLAY` — connect to proper display
  * `-e XAUTHORITY=/.Xauthority -v ~/.Xauthority:/.Xauthority:ro` — X auth stuff
- * `--privileged` — get access to /dev
+ * `-v ~/.Xauthority:/.Xauthority:ro` — again, X auth stuff
 
+### Optional
+ * `--cpuset 0` — one core is just enough
+ * `--memory 512mb` — that should be enough
+ * -v $HOME/Downloads:/home/chromium/Downloads — get access to `Downloads` dir in your profile
+ * -v $HOME/.config/chromium/:/home/chromium/.config/chromium\ — preserve runtime configuration
+ * -v /dev/snd:/dev/snd --privileged — sound
+
+
+This is heavily inspired by [Jessie Frazelle's blog post](https://blog.jessfraz.com/posts/docker-containers-on-the-desktop.html).
