@@ -1,4 +1,4 @@
-FROM fedora:21
+FROM fedora:23
 MAINTAINER Tomas Tomecek <ttomecek@redhat.com>
 ADD install_chromium.sh /
 RUN chmod +x install_chromium.sh && /install_chromium.sh
