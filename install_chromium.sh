@@ -3,7 +3,6 @@
 install_chromium_from_copr() {
     dnf install -y dnf dnf-plugins-core && dnf copr enable -y spot/chromium
     dnf install -y chromium || dnf copr disable -y spot/chromium
-    return 2
 }
 
 install_chromium_from_fp() {
@@ -12,7 +11,7 @@ install_chromium_from_fp() {
 }
 
 # install_chromium_from_copr || install_chromium_from_fp || exit 2
-install_chromium_from_copr || exit 2
+install_chromium_from_copr >/dev/null || exit 2
 
 # FIXME: minimize only needed deps
 dnf install -y libv4l pango libexif-devel pangox-compat >/dev/null
