@@ -30,7 +30,7 @@ docker run \
  * `-v ~/.Xauthority:/.Xauthority:ro` — again, X auth stuff
 
 ### Optional
- * `--cpuset 0` — one core is just enough
+ * `--cpuset-cpus 0` — one core is just enough
  * `--memory 512mb` — that should be enough
  * `-v $HOME/Downloads:/home/chromium/Downloads` — get access to `Downloads` dir in your profile
  * `-v $HOME/.config/chromium/:/home/chromium/.config/chromium\` — preserve runtime configuration
