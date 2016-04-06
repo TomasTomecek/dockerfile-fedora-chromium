@@ -6,5 +6,6 @@ exec docker run \
     -e DISPLAY=$DISPLAY \
     -e XAUTHORITY=/.Xauthority \
     -v ~/.Xauthority:/.Xauthority:ro \
+    -v $HOME:/home/chromium \
     --name chromium \
     fedora-chromium
