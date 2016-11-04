@@ -5,7 +5,7 @@ RUN chmod +x install_chromium.sh && /install_chromium.sh
 
 LABEL Name="chromium" \
       Version="0.0.1" \
-      Release="1" \
+      Release="1"
 
 # change if your user ID is different
 ARG USER_ID=1000
